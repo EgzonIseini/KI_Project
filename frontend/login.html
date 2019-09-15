@@ -46,13 +46,13 @@
                                                     <h4 class="text-dark mb-4">Welcome Back!</h4>
                                                 </div>
                                                 <form class="user">
-                                                    <div class="form-group"><input class="form-control form-control-user" type="email" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address..." name="email"></div>
-                                                    <div class="form-group"><input class="form-control form-control-user" type="password" id="exampleInputPassword" placeholder="Password" name="password"></div>
+                                                    <div class="form-group"><input class="form-control " type="email" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address..." name="email"></div>
+                                                    <div class="form-group"><input class="form-control " type="password" id="exampleInputPassword" placeholder="Password" name="password"></div>
                                                     <div class="form-group">
                                                         <div class="custom-control custom-checkbox small">
                                                             <div class="form-check"><input class="form-check-input custom-control-input" type="checkbox" id="formCheck-1"><label class="form-check-label custom-control-label" for="formCheck-1">Remember Me</label></div>
                                                         </div>
-                                                    </div><button class="btn btn-primary btn-block text-white btn-user" type="submit">Login</button>
+                                                    </div><button class="btn btn-primary btn-block text-white " id="loginButton" type="submit">Login</button>
                                                     <hr><a class="btn btn-primary btn-block text-white border-white btn-user" role="button" style="background-color: rgb(130,130,130);" href="index.html">Go Back</a>
                                                     <hr>
                                                 </form>
@@ -73,10 +73,41 @@
                 </div>
             </footer>
         </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a></div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="text/javascript" src="assets/jquery-2.1.0.min.js"></script>
+
+    <script>
+
+        $(function () {
+            $("#loginButton").on('click',function(){
+                console.log("hello")
+                this.loginButtonClick()
+            });
+        });
+
+        function loginButtonClick(){
+            console.log("selamin aleykum");
+            console.log(document.getElementById("exampleInputEmail") + ' <- email');
+            document.getElementById('exampleInputEmail').innerHTML = "dfsdfs";
+            axios.post("https://photo-sharing-back-end.herokuapp.com/public/api/login"
+            ,{
+                email: document.getElementById("exampleInputEmail"),
+                    password: document.getElementById("exampleInputPassword")
+                }
+            ).then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        }
+
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox.min.js"></script>
+
     <script src="assets/js/script.min.js"></script>
 </body>
 
