@@ -52,7 +52,7 @@
                                                         <div class="custom-control custom-checkbox small">
                                                             <div class="form-check"><input class="form-check-input custom-control-input" type="checkbox" id="formCheck-1"><label class="form-check-label custom-control-label" for="formCheck-1">Remember Me</label></div>
                                                         </div>
-                                                    </div><button class="btn btn-primary btn-block text-white " id="loginButton" type="submit">Login</button>
+                                                    </div><button class="btn btn-primary btn-block text-white btn-user" id="loginButton" type="button">Login</button>
                                                     <hr><a class="btn btn-primary btn-block text-white border-white btn-user" role="button" style="background-color: rgb(130,130,130);" href="index.html">Go Back</a>
                                                     <hr>
                                                 </form>
@@ -78,12 +78,19 @@
 
     <script>
 
-        $(function () {
-            $("#loginButton").on('click',function(){
-                console.log("hello")
-                this.loginButtonClick()
+        $(document).ready(function () {
+            $("#loginButton").on('click', function () {
+                console.log("Called loginButton click.,");
+                loginButtonClick();
             });
         });
+
+        // $(function () {
+        //     $("#loginButton").on('click',function(){
+        //         console.log("hello")
+        //         this.loginButtonClick()
+        //     });
+        // });
 
         function loginButtonClick(){
             console.log("selamin aleykum");
