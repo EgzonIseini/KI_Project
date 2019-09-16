@@ -74,17 +74,18 @@
                     <div class="card mb-3">
                         <div class="card-body text-center shadow">
                             <h3 class="text-dark mb-1 profile-name">John Doe</h3><img class="rounded-circle m-0 font-weight-bold mb-1 img-profile" style="max-width:100px; min-width: 100px;" src="assets/img/photo-1517849845537-4d257902454a.jpeg">
-                            <p class="mb-1">In the following page you can see all your albums. If you want to see all of your photos, they are located in the first album.</p>
+                            <p class="mb-1">In the following page you can see all your pictures. Right click to copy link or click on them.</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <h3 class="text-dark mb-4">Albums</h3>
-            <div class="row photos">
+            <h3 class="text-dark mb-4">Personal Gallery</h3>
+            <div class="row photos" id="personalGallery">
                 <div class="col-sm-6 col-md-4 description mb-3">
                     <div class="card" data-bs-hover-animate="bounce"><img class="card-img-top w-100 d-block" src="assets/img/desk.jpg">
                         <div class="card-body">
-                            <h5>All Pictures</h5>
+                            <h5>Picture 1</h5>
+                            <p class="text-muted" style="text-overflow: clip;">This is a very small caption of the image.</p>
                         </div>
                     </div>
                 </div>
@@ -116,7 +117,52 @@
             $(".logout").on('click', function () {
                 logout();
             });
+
+            // This is the upload pictures function.
+            // loadPictures(accessToken);
+
         });
+
+        /*
+
+            So all you have to do is list all of the user images. In the loop for every image, get the
+
+            image_url - the images link,
+            title - images title
+            caption - images caption
+
+            Make sure the variables are the exact. Define this string 
+
+            let cardHTML = '<div class="col-sm-6 col-md-4 description mb-3"><div class="card" data-bs-hover-animate="bounce"><img class="card-img-top w-100 d-block" src="' + image_url + '">' + 
+            '<div class="card-body"><h5>' + title + '</h5><p class="text-muted" style="text-overflow: clip;">' + caption + '</p></div></div></div>';
+        
+            After you do that, call this function
+
+            $("#personalGallery").append(cardHTML); 
+
+            And do all of this iteratively for every image of the user and they will be added to the website.
+
+            PseudoCoode:
+
+            function loadPictures(accessToken) { 
+                
+                let userPictures = response.data.images;
+
+                for(Picture picture in userPictures) {
+
+                    let image_url = picture.url,
+                        tile = picture.title,
+                        caption = picture.caption;
+
+                    let cardHTML = '<div class="col-sm-6 col-md-4 description mb-3"><div class="card" data-bs-hover-animate="bounce"><img class="card-img-top w-100 d-block" src="' + image_url + '">' + 
+                     '<div class="card-body"><h5>' + title + '</h5><p class="text-muted" style="text-overflow: clip;">' + caption + '</p></div></div></div>';
+
+                    $("#personalGallery").append(cardHTML); 
+                }
+            }
+        */
+        
+         
 
         function getUserDetails(access_token) {
             var myUrl = "https://cors-anywhere.herokuapp.com/photo-sharing-back-end.herokuapp.com/public/api/user/details";
