@@ -1,17 +1,18 @@
-For starting the Backend:
+# Photo Sharing
+Design for photo sharing system. The system allow users to create their own profiles and upload pictures. Images can be organized into albums and shared with other users. 
 
-You should have xampp already installed and this should be in xampp/htdocs/[project-name] folder
-you should create a database
-Run:
-composer install
-Open PhpMyAdmin( or mysql from command line)
-create database named 
-copy .env.example to .env and type database credentials
-then run:
-php artisan migrate:fresh
-php artisan passport:client --personal
-php artisan install passport
+**Created by**
+- Alican Ali
+- Egzon Iseini
+- Nilufer Basgul
 
-Instead of doing all these you can use our Server on heroku:
-https://photo-sharing-back-end.herokuapp.com
+**Technology**
+- Bootstrap 4
+- jQuery
+- Php Laravel
+Server is running on: https://photo-sharing-back-end.herokuapp.com
 
+
+**Installation**
+- Everything is locally set up
+- just download the project and open the index.html file
