@@ -14,6 +14,12 @@
     <link rel="stylesheet" href="assets/css/styles.min.css">
 </head>
 
+<script>
+    if(localStorage.getItem("access_token") == undefined) {
+        window.location.href = "404.html";
+    }
+</script>
+
 <body id="page-top">
     <div id="wrapper">
         <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0">
@@ -33,7 +39,7 @@
             </div>
         </nav>
         <div class="d-flex flex-column" id="content-wrapper">
-            <div id="content">
+            <div id="content" class="hidden">
                 <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
                     <div class="container-fluid">
                         <ul class="nav navbar-nav flex-nowrap ml-auto">
@@ -51,11 +57,11 @@
                             </li>
                             <div class="d-none d-sm-block topbar-divider"></div>
                             <li class="nav-item dropdown no-arrow" role="presentation">
-                                <li class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" data-bs-hover-animate="flash" href="#"><span class="d-none d-lg-inline mr-2 text-gray-600 small">John Doe</span><img class="border rounded-circle img-profile" src="assets/img/photo-1517849845537-4d257902454a.jpeg"></a>
+                                <li class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" data-bs-hover-animate="flash" href="#"><span class="d-none d-lg-inline mr-2 text-gray-600 small profile-name">John Doe</span><img class="border rounded-circle img-profile" src="assets/img/photo-1517849845537-4d257902454a.jpeg"></a>
                                     <div
-                                        class="dropdown-menu shadow dropdown-menu-right animated--grow-in" role="menu"><a class="dropdown-item" role="presentation" href="profile.html"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profile</a><a class="dropdown-item" role="presentation" href="settings.html"><i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Settings</a>
+                                        class="dropdown-menu shadow dropdown-menu-right animated--grow-in" role="menu"><a class="dropdown-item" role="presentation" href="#"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profile</a><a class="dropdown-item" role="presentation" href="settings.html"><i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Settings</a>
                                         <div
-                                            class="dropdown-divider"></div><a class="dropdown-item" role="presentation" href="#"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</a></div>
+                                            class="dropdown-divider"></div><a class="dropdown-item logout" role="presentation" href="#"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</a></div>
             </li>
             </li>
             </ul>
@@ -67,7 +73,7 @@
                 <div class="col">
                     <div class="card mb-3">
                         <div class="card-body text-center shadow">
-                            <h3 class="text-dark mb-1">John Doe</h3><img class="rounded-circle m-0 font-weight-bold mb-1" src="assets/img/photo-1517849845537-4d257902454a.jpeg">
+                            <h3 class="text-dark mb-1 profile-name">John Doe</h3><img class="rounded-circle m-0 font-weight-bold mb-1 img-profile" style="max-width:100px; min-width: 100px;" src="assets/img/photo-1517849845537-4d257902454a.jpeg">
                             <p class="mb-1">In the following page you can see all your albums. If you want to see all of your photos, they are located in the first album.</p>
                         </div>
                     </div>
@@ -79,27 +85,6 @@
                     <div class="card" data-bs-hover-animate="bounce"><img class="card-img-top w-100 d-block" src="assets/img/desk.jpg">
                         <div class="card-body">
                             <h5>All Pictures</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4 description mb-3">
-                    <div class="card" data-bs-hover-animate="bounce"><img class="card-img-top w-100 d-block" src="assets/img/building.jpg">
-                        <div class="card-body">
-                            <h5>Building Album</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4 description mb-3">
-                    <div class="card" data-bs-hover-animate="bounce"><img class="card-img-top w-100 d-block" src="assets/img/loft.jpg">
-                        <div class="card-body">
-                            <h5>Interior Pictures</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4 description mb-3">
-                    <div class="card" data-bs-hover-animate="bounce"><img class="card-img-top w-100 d-block" src="assets/img/img-2.jpg">
-                        <div class="card-body">
-                            <h5>Portrait Pictures</h5>
                         </div>
                     </div>
                 </div>
@@ -116,10 +101,53 @@
         <div class="row"></div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox.min.js"></script>
     <script src="assets/js/script.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            let accessToken = localStorage.getItem("access_token");
+
+            getUserDetails(accessToken);
+
+            $(".logout").on('click', function () {
+                logout();
+            });
+        });
+
+        function getUserDetails(access_token) {
+            var myUrl = "https://cors-anywhere.herokuapp.com/photo-sharing-back-end.herokuapp.com/public/api/user/details";
+
+            axios.get(myUrl, {
+                headers: {
+                    'Authorization': 'Bearer ' + access_token,
+                }
+            }).then(function (response) {
+                $(".profile-name").text(response.data.first_name + " " + response.data.last_name);
+                
+                if(response.data.img == null) {
+                    $(".img-profile").attr('src', 'assets/img/blank_profile.png');
+                } else {
+                    $(".img-profile").attr('src', response.data.image);
+                }
+
+                $("#content").show();
+            }).catch(function (error) {  
+                console.log(error);
+            });
+        }
+
+        function logout() { 
+            if(localStorage.getItem("access_token") != undefined) {
+                localStorage.removeItem("access_token");
+            }
+
+            setTimeout(function() { window.location.href = "index.html"; }, 1000);
+        }
+    </script>
 </body>
 
 </html>

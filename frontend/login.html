@@ -74,7 +74,7 @@
                                                                         for="formCheck-1">Remember Me</label></div>
                                                             </div>
                                                         </div>
-                                                        <div id="loginError" class="form-group alert alert-danger fade show" role="alert">
+                                                        <div id="loginError" class="form-group alert alert-danger fade show hidden" role="alert">
                                                             You have entered an invalid e-mail/password. <strong>Please try again!</strong>
                                                         </div>
                                                         <button class="btn btn-primary btn-block text-white btn-user"
@@ -91,7 +91,7 @@
                                                     <div class="text-center"><a class="small" href="register.html">Create an
                                                         Account!</a></div>
                                             </div>
-                                            <div id="loginSuccess" class="alert alert-success fade show">
+                                            <div id="loginSuccess" class="alert alert-success fade show hidden">
                                                 Successfully logged in... <strong>Redirecting.</strong>
                                             </div>
                                         </div>
@@ -110,18 +110,20 @@
         </footer>
     </div>
     <a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a></div>
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script type="text/javascript" src="assets/jquery-2.1.0.min.js"></script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox.min.js"></script>
 <script>
 
     $(document).ready(function () {
 
-        $("#loginSuccess").toggle();
-        $("#loginError").toggle();
+        $("#loginSuccess").hide();
+        $("#loginError").hide();
 
         $("#loginButton").on('click', function () {
-            console.log("Called loginButton click.,");
             loginButtonClick();
         });
     });
@@ -140,21 +142,24 @@
             }
         }).then(function (response) {
             localStorage.setItem("access_token",response.data.access_token);
-            $("#loginError").hide();
-            $("#loginWindow").hide();
-            $("#loginSuccess").toggle();
 
-            setTimeout(function() { window.location.href = "index.html"; }, 1000);
+            if(response.data.access_token == undefined) {
+                $("#loginError").show();
+                return;
+            } 
+            else {
+                $("#loginError").hide();
+                $("#loginWindow").hide();
+                $("#loginSuccess").toggle();
+
+                setTimeout(function() { window.location.href = "index.html"; }, 1000);
+            }
         }).catch(function (error) {
             $("#loginError").show();
         });
     }
 
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox.min.js"></script>
 
 <script src="assets/js/script.min.js"></script>
 </body>

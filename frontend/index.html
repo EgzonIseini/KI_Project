@@ -24,7 +24,7 @@
                 </a>
                 <hr class="sidebar-divider my-0">
                 <ul class="nav navbar-nav text-light" id="accordionSidebar">
-                    <li class="nav-item" role="presentation"><a class="nav-link active" href="index.html"><i class="fas fa-home"></i><span>Home</span></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="#"><i class="fas fa-home"></i><span>Home</span></a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="gallery.html"><i class="fas fa-grip-horizontal"></i><span>Gallery</span></a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="help.html"><i class="fas fa-question"></i><span>Help</span></a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="contact-us.html"><i class="fas fa-envelope"></i><span>Contact Us</span></a></li>
@@ -34,7 +34,7 @@
         </nav>
         <div class="d-flex flex-column" id="content-wrapper">
             <div id="content">
-                <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
+                <nav id="notLoggedInNavigation" class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top hidden">
                     <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
                         <ul class="nav navbar-nav flex-nowrap ml-auto">
                             <div class="d-none d-sm-block topbar-divider"></div>
@@ -43,13 +43,41 @@
                                     <div
                                         class="dropdown-menu shadow dropdown-menu-right animated--grow-in" role="menu"><a class="dropdown-item" role="presentation" href="login.html"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Log In</a>
                                         <div class="dropdown-divider"></div><a class="dropdown-item" role="presentation" href="register.html"><i class="fas fa-user-plus fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Register</a></div>
-                    </li>
-                    </li>
-                    </ul>
-            </div>
-            </nav>
+                                </li>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+
+                <nav id="loggedInNavigation" class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top hidden">
+                        <div class="container-fluid">
+                            <ul class="nav navbar-nav flex-nowrap ml-auto">
+                                <li class="nav-item dropdown show d-sm-none no-arrow"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="true" href="#"><i class="fas fa-search"></i></a>
+                                    <div class="dropdown-menu show dropdown-menu-right p-3 animated--grow-in" role="menu" aria-labelledby="searchDropdown">
+                                        <form class="form-inline mr-auto navbar-search w-100">
+                                            <div class="input-group"><input class="bg-light form-control border-0 small" type="text" placeholder="Search for ...">
+                                                <div class="input-group-append"><button class="btn btn-primary py-0" type="button"><i class="fas fa-search"></i></button></div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </li>
+                                <li class="nav-item dropdown no-arrow mx-1" role="presentation"><a class="nav-link text-dark" data-bs-hover-animate="flash" href="profile.html"><i class="far fa-images fa-fw"></i><span>My Gallery</span></a>
+                                    <div class="shadow dropdown-list dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown"></div>
+                                </li>
+                                <div class="d-none d-sm-block topbar-divider"></div>
+                                <li class="nav-item dropdown no-arrow" role="presentation">
+                                    <li class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" data-bs-hover-animate="flash" href="#"><span class="d-none d-lg-inline mr-2 text-gray-600 small profile-name">Valerie Luna</span><img class="border rounded-circle img-profile" src="assets/img/photo-1517849845537-4d257902454a.jpeg"></a>
+                                        <div
+                                            class="dropdown-menu shadow dropdown-menu-right animated--grow-in" role="menu"><a class="dropdown-item" role="presentation" href="profile.html"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profile</a><a class="dropdown-item" role="presentation" href="settings.html"><i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Settings</a>
+                                            <div
+                                                class="dropdown-divider"></div><a class="dropdown-item logout" role="presentation" href="#"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</a></div>
+                                    </li>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
             <div class="container-fluid">
-                <div class="jumbotron">
+                <div id="notLoggedLandingPage" class="jumbotron hidden">
                     <h1>Welcome to Picturio</h1>
                     <p>Picturio is a simple image sharing service which allows you to quicky and easily upload all of your images and share them anywhere and with whoever you like. And all that for <strong>free!</strong><br><br><strong>All you have to do in order to get started is </strong>
                         <a
@@ -57,6 +85,26 @@
                     <div class="row">
                         <div class="col"><a class="btn btn-primary btn-lg border-secondary d-block" role="button" style="background-color: #d347a8;background-image: linear-gradient(90deg,#d347a8 10%,#853b92);" href="login.html">Log In</a></div>
                         <div class="col"><a class="btn btn-primary btn-lg border-secondary d-block" role="button" style="background-color: #853b92;background-image: linear-gradient(90deg,#853b9210%,#122a71);" href="register.html">Register</a></div>
+                    </div>
+                </div>
+                <div id="loggedInLandingPage" class="card hidden">
+                        <div class="card-header">
+                            <h3 class="text-dark mb-1">Upload a Picture</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="row"><div class="col"><div class="dashed_upload">
+                                <div class="wrapper">
+                                    <div class="drop">
+                                        <div class="cont">
+                                            <i class="far fa-images"></i>
+                                            <div class="tit">Drag & Drop</div>
+                                            <div class="desc">or</div>
+                                            <div class="btn btn-primary">Browse</div>
+                                        </div>
+                                        <output id="list"></output><input id="files" multiple name="files[]" type="file" />
+                                    </div>
+                                </div>
+                            </div></div></div>
                     </div>
                 </div>
             </div>
@@ -67,11 +115,75 @@
             </div>
         </footer>
     </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a></div>
+
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox.min.js"></script>
     <script src="assets/js/script.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            let accessToken = localStorage.getItem("access_token");
+            if(accessToken == undefined) toggleGuestNavigation();
+
+            getUserDetails(accessToken);
+
+            $(".logout").on('click', function () {
+                logout();
+            });
+        });
+
+        function getUserDetails(access_token) {
+            var myUrl = "https://cors-anywhere.herokuapp.com/photo-sharing-back-end.herokuapp.com/public/api/user/details";
+
+            axios.get(myUrl, {
+                headers: {
+                    'Authorization': 'Bearer ' + access_token,
+                }
+            }).then(function (response) {
+                console.log(response.data);
+
+                $("#loggedInNavigation .profile-name").text(response.data.first_name + " " + response.data.last_name);
+                
+                if(response.data.img == null) {
+                    $("#loggedInNavigation .img-profile").attr('src', 'assets/img/blank_profile.png');
+                } else {
+                    $("#loggedInNavigation .img-profile").attr('src', response.data.image);
+                }
+
+                toggleLoggedInNavigation();
+            }).catch(function (error) {  
+                console.log(error);
+            });
+        }
+
+        function toggleLoggedInNavigation() {
+            $("#loggedInLandingPage").show();
+            $("#loggedInNavigation").show();
+
+            $("#notLoggedLandingPage").hide();
+            $("#notLoggedInNavigation").hide();
+        }
+
+        function toggleGuestNavigation() {
+            $("#loggedInLandingPage").hide();
+            $("#loggedInNavigation").hide();
+
+            $("#notLoggedInNavigation").show();
+            $("#notLoggedLandingPage").show();
+        }
+
+        function logout() { 
+            if(localStorage.getItem("access_token") != undefined) {
+                localStorage.removeItem("access_token");
+            }
+
+            setTimeout(function() { window.location.href = "index.html"; }, 1000);
+        }
+    </script>
 </body>
 
 </html>
