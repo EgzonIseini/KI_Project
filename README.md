@@ -7,7 +7,7 @@ Design for photo sharing system. The system allow users to create their own prof
 - Nilufer Basgul
 
 SEE IT LIVE:
-https://photo-sharing-back-end.herokuapp.com
+https://photo-sharing-frontend.herokuapp.com/gallery.html
 
 **Technology**
 - Bootstrap 4
