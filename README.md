@@ -12,6 +12,7 @@ There's two possibilities, you can either clone or fork this GitHub project and 
 
 SEE IT LIVE:
 https://photo-sharing-frontend.herokuapp.com/
+
 Demo account: 
 email: demoaccount@hotmail.com
 password: alicanbok
