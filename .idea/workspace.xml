@@ -2,41 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7413038d-6ab9-456d-ac22-268c764f706f" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/frontend/.idea/workspace.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/frontend/404.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/frontend/assets/bootstrap/css/bootstrap.min.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/frontend/assets/css/styles.min.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/frontend/assets/img/avatars/avatar1.jpeg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/frontend/assets/img/avatars/avatar2.jpeg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/frontend/assets/img/avatars/avatar3.jpeg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/frontend/assets/img/avatars/avatar4.jpeg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/frontend/assets/img/avatars/avatar5.jpeg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/frontend/assets/img/blank_profile.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/frontend/assets/img/building.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/frontend/assets/img/desk.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/frontend/assets/img/dogs/image2.jpeg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/frontend/assets/img/img-2.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/frontend/assets/img/loft.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/frontend/assets/img/photo-1458071103673-6a6e4c4a3413.jpeg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/frontend/assets/img/photo-1517849845537-4d257902454a.jpeg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/frontend/assets/img/photo-1520719627573-5e2c1a6610f0.jpeg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/frontend/assets/img/photo-1531483789621-6dc42dfa5078.jpeg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/frontend/assets/img/photo-1531550138977-3c1c4baee57b.jpeg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/frontend/assets/jquery-1.11.3 (1).js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/frontend/assets/jquery-2.1.0.min.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/frontend/assets/js/script.min.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/frontend/blank.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/frontend/contact-us.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/frontend/forgot-password.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/frontend/gallery.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/frontend/help.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/frontend/index.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/frontend/index_logged.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/frontend/left_navigation.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/frontend/login.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/frontend/profile.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/frontend/register.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/frontend/settings.html" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -93,8 +59,8 @@
       <file leaf-file-name="gallery.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/gallery.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="216" column="33" lean-forward="false" selection-start-line="216" selection-start-column="33" selection-end-line="216" selection-end-column="33" />
+            <state relative-caret-position="289">
+              <caret line="229" column="24" lean-forward="false" selection-start-line="229" selection-start-column="24" selection-end-line="229" selection-end-column="24" />
               <folding>
                 <element signature="e#3672#3678#0" expanded="true" />
                 <element signature="e#4145#4151#0" expanded="true" />
@@ -149,7 +115,7 @@
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="4726">
-              <caret line="278" column="45" lean-forward="true" selection-start-line="278" selection-start-column="45" selection-end-line="278" selection-end-column="45" />
+              <caret line="278" column="45" lean-forward="false" selection-start-line="278" selection-start-column="45" selection-end-line="278" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -281,23 +247,24 @@
       <workItem from="1568489474941" duration="2707000" />
       <workItem from="1568506306083" duration="17734000" />
       <workItem from="1568635862264" duration="13486000" />
-      <workItem from="1568662927813" duration="11000" />
+      <workItem from="1568662927813" duration="348000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33938000" />
+    <option name="totallyTimeSpent" value="34275000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1376488" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1376488" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2037037" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2037037" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -305,7 +272,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -513,7 +479,7 @@
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4726">
-          <caret line="278" column="45" lean-forward="true" selection-start-line="278" selection-start-column="45" selection-end-line="278" selection-end-column="45" />
+          <caret line="278" column="45" lean-forward="false" selection-start-line="278" selection-start-column="45" selection-end-line="278" selection-end-column="45" />
           <folding />
         </state>
       </provider>
@@ -559,8 +525,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/gallery.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="216" column="33" lean-forward="false" selection-start-line="216" selection-start-column="33" selection-end-line="216" selection-end-column="33" />
+        <state relative-caret-position="289">
+          <caret line="229" column="24" lean-forward="false" selection-start-line="229" selection-start-column="24" selection-end-line="229" selection-end-column="24" />
           <folding>
             <element signature="e#3672#3678#0" expanded="true" />
             <element signature="e#4145#4151#0" expanded="true" />

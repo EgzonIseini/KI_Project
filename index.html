@@ -229,6 +229,7 @@
     $(document).ready(function () {
 
         let accessToken = localStorage.getItem("access_token");
+        let file = null;
         if (accessToken == undefined) toggleGuestNavigation();
 
         getUserDetails(accessToken);
@@ -237,7 +238,8 @@
             logout();
         });
 
-        $("#files").change(function () {
+        $("#files").change(function (event) {
+            file = event.target.files[0];
             showImage(this);
             $("#photoUploadInterface").show();
         });
@@ -256,7 +258,6 @@
                 privacy = $("#formCheck-1").is(":checked") ? "PUBLIC" : "PRIVATE",
                 image = $("#files").val();
 
-
             if (title.length < 5) {
                 $("#titleAlert").fadeIn('slow', function () {
                     $("#titleAlert").delay(3500).fadeOut();
@@ -269,22 +270,15 @@
                 formData.append('description', caption);
                 formData.append('name', title);
                 formData.append('visibility', privacy);
-                formData.append('image', image);
-
+                formData.append('image', file);
+                console.log(formData)
 
                 var myUrl = "https://cors-anywhere.herokuapp.com/photo-sharing-back-end.herokuapp.com/public/api/post";
-                // var myData = {
-                //     "description": caption,
-                //     "name": title,
-                //     "visibility": privacy,
-                //     "image": image
-                // };
-                formData.append('_method', 'PATCH');
 
                 axios.post(myUrl, formData, {
                     headers: {
                         'Authorization': 'Bearer ' + accessToken,
-                        // 'Content-Type':'application/x-www-form-urlencoded'
+                        'Content-Type': 'multipart/form-data'
                     }
                 }).then(function (response) {
                     console.log("Success!")

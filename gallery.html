@@ -189,7 +189,6 @@
                 'Authorization': 'Bearer ' + access_token,
             }
         }).then(function (response) {
-            console.log(response.data);
 
             $("#loggedInNavigation .profile-name").text(response.data.first_name + " " + response.data.last_name);
 
@@ -213,16 +212,17 @@
                 'Authorization': 'Bearer ' + access_token,
             }
         }).then(function (response) {
-            for (var data in response.data) {
-                data = data.data;
-                var title = data.name;
-                var caption = data.description;
-                var image_url = myUrl + data.path + name;
-                console.log(data);
-                let cardHTML = '<div class="col-sm-6 col-md-4 description mb-3"><div class="card" data-bs-hover-animate="bounce"><img class="card-img-top w-100 d-block" src="' + image_url + '">' +
+            for (var key in response.data.data) {
+                console.log(response.data.data[key])
+                var title = response.data.data[key].name;
+                var caption = response.data.data[key].description;
+                var image_url = myUrl + response.data.data[key].image.path + '/' + response.data.data[key].image.name;
+
+                let cardHTML = '<div class="col-sm-6 col-md-4 description mb-3"><div class="card" data-bs-hover-animate="bounce">' +
+                    '<img class="" src="' + image_url + '">' +
                     '<div class="card-body"><h5>' + title + '</h5><p class="text-muted" style="text-overflow: clip;">' + caption + '</p></div></div></div>';
 
-                $(".row_photos").append(cardHTML);
+                $("#row_photos").append(cardHTML);
 
             }
 
