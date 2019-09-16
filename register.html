@@ -83,6 +83,7 @@
                                         <a class="btn btn-primary btn-block text-white border-white btn-user"
                                            role="button" style="background-color: rgb(130,130,130);" href="index.html">Go
                                             Back</a>
+                                            <div id="loginResponse"></div>
                                         <hr>
                                     </form>
                                     <div class="text-center"><a class="small" href="forgot-password.html">Forgot
@@ -135,8 +136,11 @@
             }
         }).then(function (response) {
             console.log(response);
+            $( "#loginResponse" ).append( "<h4 class=\"text-success\">Login successfull</h4>" );
             localStorage.setItem("access_token", response.data.access_token);
-            //navigation
+            setTimeout(() => {
+                window.location = 'index.html';
+            }, 1000);
 
         }).catch(function (error) {
             console.log(error);
