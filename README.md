@@ -5,21 +5,24 @@
 
 Picturio is an image sharing platform, with an attempt to implement the above mentioned features. It features an easy to use and straightforward user interface designed exclusively with Bootstrap 4. It allows for any user to easily register accounts after which they can upload images to the platform that they can later share with other people. 
 
-**How to use:**
+
+**How to use**
+
 There's two possibilities, you can either clone or fork this GitHub project and run it locally from your computer (index.html). Or you can quickly and easily try it out using the DEMO link below.
 
 SEE IT LIVE:
 https://photo-sharing-frontend.herokuapp.com/
 
 **Technology**
-- Bootstrap 4
-- jQuery
-- PHP Laravel
+
+ - Bootstrap 4
+ - jQuery
+ - PHP Laravel
 Server is running on: https://photo-sharing-back-end.herokuapp.com
 
 **Created by**
-- Alican Ali
-- Egzon Iseini
-- Nilufer Basgul
+ - Alican Ali
+ - Egzon Iseini
+ - Nilufer Basgul
 
 ![Picturio Main Landing Page for registered users.](https://i.imgur.com/T98jkiM.png)
