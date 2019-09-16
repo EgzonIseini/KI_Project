@@ -53,43 +53,48 @@
                                         <div class="p-5">
                                             <div id="loginWindow">
                                                 <div class="text-center">
-                                                        <h4 class="text-dark mb-4">Welcome Back!</h4>
+                                                    <h4 class="text-dark mb-4">Welcome Back!</h4>
+                                                </div>
+                                                <form class="user">
+                                                    <div class="form-group"><input
+                                                            class="form-control form-control-user" type="email"
+                                                            id="exampleInputEmail"
+                                                            aria-describedby="emailHelp"
+                                                            placeholder="Enter Email Address..."
+                                                            name="email"></div>
+                                                    <div class="form-group"><input
+                                                            class="form-control form-control-user" type="password"
+                                                            id="exampleInputPassword"
+                                                            placeholder="Password" name="password">
                                                     </div>
-                                                    <form class="user">
-                                                        <div class="form-group"><input class="form-control form-control-user" type="email"
-                                                                                        id="exampleInputEmail"
-                                                                                        aria-describedby="emailHelp"
-                                                                                        placeholder="Enter Email Address..."
-                                                                                        name="email"></div>
-                                                        <div class="form-group"><input class="form-control form-control-user" type="password"
-                                                                                        id="exampleInputPassword"
-                                                                                        placeholder="Password" name="password">
+                                                    <div class="form-group">
+                                                        <div class="custom-control custom-checkbox small">
+                                                            <div class="form-check"><input
+                                                                    class="form-check-input custom-control-input"
+                                                                    type="checkbox" id="formCheck-1"><label
+                                                                    class="form-check-label custom-control-label"
+                                                                    for="formCheck-1">Remember Me</label></div>
                                                         </div>
-                                                        <div class="form-group">
-                                                            <div class="custom-control custom-checkbox small">
-                                                                <div class="form-check"><input
-                                                                        class="form-check-input custom-control-input"
-                                                                        type="checkbox" id="formCheck-1"><label
-                                                                        class="form-check-label custom-control-label"
-                                                                        for="formCheck-1">Remember Me</label></div>
-                                                            </div>
-                                                        </div>
-                                                        <div id="loginError" class="form-group alert alert-danger fade show hidden" role="alert">
-                                                            You have entered an invalid e-mail/password. <strong>Please try again!</strong>
-                                                        </div>
-                                                        <button class="btn btn-primary btn-block text-white btn-user"
-                                                                id="loginButton" type="button">Login
-                                                        </button>
-                                                        <hr>
-                                                        <a class="btn btn-primary btn-block text-white border-white btn-user"
-                                                            role="button" style="background-color: rgb(130,130,130);"
-                                                            href="index.html">Go Back</a>
-                                                        <hr>
-                                                    </form>
-                                                    <div class="text-center"><a class="small" href="forgot-password.html">Forgot
-                                                        Password?</a></div>
-                                                    <div class="text-center"><a class="small" href="register.html">Create an
-                                                        Account!</a></div>
+                                                    </div>
+                                                    <div id="loginError"
+                                                         class="form-group alert alert-danger fade show hidden"
+                                                         role="alert">
+                                                        You have entered an invalid e-mail/password. <strong>Please try
+                                                        again!</strong>
+                                                    </div>
+                                                    <button class="btn btn-primary btn-block text-white btn-user"
+                                                            id="loginButton" type="button">Login
+                                                    </button>
+                                                    <hr>
+                                                    <a class="btn btn-primary btn-block text-white border-white btn-user"
+                                                       role="button" style="background-color: rgb(130,130,130);"
+                                                       href="index.html">Go Back</a>
+                                                    <hr>
+                                                </form>
+                                                <div class="text-center"><a class="small" href="forgot-password.html">Forgot
+                                                    Password?</a></div>
+                                                <div class="text-center"><a class="small" href="register.html">Create an
+                                                    Account!</a></div>
                                             </div>
                                             <div id="loginSuccess" class="alert alert-success fade show hidden">
                                                 Successfully logged in... <strong>Redirecting.</strong>
@@ -141,18 +146,20 @@
                 'Content-Type': 'application/json',
             }
         }).then(function (response) {
-            localStorage.setItem("access_token",response.data.access_token);
+            localStorage.setItem("access_token", response.data.access_token);
 
-            if(response.data.access_token == undefined) {
+            if (response.data.access_token == undefined) {
                 $("#loginError").show();
                 return;
-            } 
+            }
             else {
                 $("#loginError").hide();
                 $("#loginWindow").hide();
                 $("#loginSuccess").toggle();
 
-                setTimeout(function() { window.location.href = "index.html"; }, 1000);
+                setTimeout(function () {
+                    window.location.href = "index.html";
+                }, 1000);
             }
         }).catch(function (error) {
             $("#loginError").show();
