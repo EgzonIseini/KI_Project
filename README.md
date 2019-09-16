@@ -6,6 +6,9 @@ Design for photo sharing system. The system allow users to create their own prof
 - Egzon Iseini
 - Nilufer Basgul
 
+SEE IT LIVE:
+https://photo-sharing-back-end.herokuapp.com
+
 **Technology**
 - Bootstrap 4
 - jQuery
@@ -16,3 +19,4 @@ Server is running on: https://photo-sharing-back-end.herokuapp.com
 **Installation**
 - Everything is locally set up
 - just download the project and open the index.html file
+
