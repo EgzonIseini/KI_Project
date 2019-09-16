@@ -87,12 +87,12 @@
                         <div class="col"><a class="btn btn-primary btn-lg border-secondary d-block" role="button" style="background-color: #853b92;background-image: linear-gradient(90deg,#853b9210%,#122a71);" href="register.html">Register</a></div>
                     </div>
                 </div>
-                <div id="loggedInLandingPage" class="card hidden">
+                <div id="loggedInLandingPage" class="card mb-3 hidden">
                         <div class="card-header">
                             <h3 class="text-dark mb-1">Upload a Picture</h3>
                         </div>
                         <div class="card-body">
-                            <div class="row"><div class="col"><div class="dashed_upload">
+                            <div class="row"><div class="col"><div class="dashed_upload mt-1 mb-2">
                                 <div class="wrapper">
                                     <div class="drop">
                                         <div class="cont">
@@ -101,11 +101,35 @@
                                             <div class="desc">or</div>
                                             <div class="btn btn-primary">Browse</div>
                                         </div>
-                                        <output id="list"></output><input id="files" multiple name="files[]" type="file" />
+                                        <output id="list"></output>
+                                        <form enctype="multipart/form-data" method="POST"><input id="files" multiple names="file[]" type="file" /></form>
                                     </div>
                                 </div>
                             </div></div></div>
                     </div>
+                </div>
+                <div id="photoUploadInterface" class="hidden">
+                    <div class="card">
+                            <div class="card-header">
+                                <h3 class="text-dark mb-1">Picture Details</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-6 d-xl-flex justify-content-xl-center align-items-xl-center"><img class="img-fluid" id="previewImage" src="" /></div>
+                                    <div class="col">
+                                        <form>
+                                            <div class="form-group"><label for="title">Picture Title</label><input type="text" class="form-control form-control-sm" name="title" id="title" minlength="5" required /></div>
+                                            <div class="alert alert-danger hidden" id="titleAlert">Title must be more than <strong>5 characters</strong> long!</div>
+                                            <div class="form-group"><label for="caption">Caption</label><textarea class="form-control" name="caption" id="caption"></textarea></div>
+                                        </form><small>If toggled on, your picture will be public and can be discovered by anyone. If not then only people withe the link can view it.</small><br /><small id="privacyText">Current: Private.<br /></small>
+                                        <div class="form-group d-xl-flex justify-content-xl-start align-items-xl-center">
+                                            <div class="custom-control disabled custom-switch"><input type="checkbox" class="custom-control-input" id="formCheck-1" /><label class="custom-control-label" for="formCheck-1">Public</label></div>
+                                        </div><button class="btn btn-primary btn-block btn-lg" id="uploadButton" type="button">Upload</button>
+                                        <div role="group" class="btn-group"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                 </div>
             </div>
         </div>
@@ -134,7 +158,71 @@
             $(".logout").on('click', function () {
                 logout();
             });
+
+            $("#files").change(function () {  
+                showImage(this);
+                $("#photoUploadInterface").show();
+            });
+
+            $("#formCheck-1").change(function () {  
+                if(this.checked) {
+                    $("#privacyText").text("Current: Public");
+                } else {
+                    $("#privacyText").text("Current: Private");
+                }
+            })
+
+            $("#uploadButton").on('click', function () {
+                let title = $("#title").val(),
+                    caption = $("#caption").val(),
+                    privacy = $("#formCheck-1").is(":checked") ? "PUBLIC" : "PRIVATE",
+                    image = $("#files").val();
+
+
+                if(title.length < 5) {
+                    $("#titleAlert").fadeIn('slow', function () {  
+                        $("#titleAlert").delay(3500).fadeOut();
+                    });
+                    return;
+                }
+                else {
+                    var myUrl = "https://cors-anywhere.herokuapp.com/photo-sharing-back-end.herokuapp.com/public/api/post";
+                    var myData = {
+                        "description": caption,
+                        "name": title,
+                        "album_id": 0,
+                        "visibility": privacy,
+                        "image": image
+                    };
+
+                    axios.post(myUrl, myData, {
+                        headers: {
+                            'Authorization': 'Bearer ' + accessToken,
+                        }
+                    }).then(function (response) {
+                        console.log("Success!")
+                        console.log(response);
+                    }).catch(function (error) {
+                        console.log("Error!");
+                        console.log(error);
+                    });
+
+                    console.log(`Title: ${title}\nCaption: ${caption}\nPrivacy Settings: ${privacy}\nImage: ${image}`);
+                }
+            });
         });
+
+        function showImage(input) {  
+            if(input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    $("#previewImage").attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
 
         function getUserDetails(access_token) {
             var myUrl = "https://cors-anywhere.herokuapp.com/photo-sharing-back-end.herokuapp.com/public/api/user/details";
